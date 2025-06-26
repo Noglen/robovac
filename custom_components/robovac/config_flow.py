@@ -133,10 +133,10 @@ def get_eufy_vacuums(self):
         phone_code=self[CONF_COUNTRY_CODE],
     )
 
-    items = device_response["items"]
+    items = device_response["devices"]
     self[CONF_VACS] = {}
     for item in items:
-        if item["device"]["product"]["appliance"] == "Cleaning":
+        if item["product"]["appliance"] == "Cleaning":
             try:
                 device = tuya_client.get_device(item["id"])
 
