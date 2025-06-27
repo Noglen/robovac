@@ -8,6 +8,7 @@
     "integration_type": "device",
     "iot_class": "local_polling",
     "issue_tracker": "https://github.com/codefoodpixels/robovac/issues",
+    "loggers": ["custom_components.robovac"],
     "requirements": [],
-    "version": "1.0.0"
+    "version": "1.2.15"
 }

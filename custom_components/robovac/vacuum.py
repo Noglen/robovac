@@ -257,11 +257,11 @@ class RoboVacEntity(StateVacuumEntity):
                 )
             )
             return VacuumActivity.ERROR
-        elif self.tuya_state == "Charging" or self.tuya_state == "completed":
+        elif self.tuya_state == "Charging" or self.tuya_state == "Completed":
             return VacuumActivity.DOCKED
         elif self.tuya_state == "Recharge":
             return VacuumActivity.RETURNING
-        elif self.tuya_state == "Sleeping" or self.tuya_state == "standby":
+        elif self.tuya_state == "Sleeping" or self.tuya_state == "Standby":
             return VacuumActivity.IDLE
         else:
             return VacuumActivity.CLEANING
@@ -409,8 +409,9 @@ class RoboVacEntity(StateVacuumEntity):
                 self.tuyastatus.get(
                     self._tuya_command_codes[RobovacCommand.STATUS]
                 ), None
-            ), None
+            ), "Standby"
         )
+        
         _LOGGER.debug("tuya_state %s", self.tuya_state)
         
         self.error_code = ERROR_MAPPING.get(
